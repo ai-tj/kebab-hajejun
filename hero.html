@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kebab Hajejun — Tak Cukup Hanya Sekali</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // Ganti warna utama menjadi lebih "Foody" dan modern
+              primary: "#FF5722", // Orange cerah/merah bata (kebab/daging)
+              secondary: "#10B981", // Hijau segar (sayuran/fresh)
+              accent: "#FBBF24", // Kuning/Mustard (keju/saus)
+              bgLight: "#FFF7ED", // Background sangat terang
+              textDark: "#1F2937", // Abu gelap untuk teks
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+            animation: {
+              float: "float 3s ease-in-out infinite",
+              "pulse-strong": "pulse-strong 2s infinite",
+            },
+            keyframes: {
+              "pulse-strong": {
+                "0%": { "box-shadow": "0 0 0 0 rgba(255, 87, 34, 0.7)" },
+                "70%": { "box-shadow": "0 0 0 15px rgba(255, 87, 34, 0)" },
+                "100%": { "box-shadow": "0 0 0 0 rgba(255, 87, 34, 0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Animasi float yang lebih halus */
+      .float {
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Animasi Hover CTA */
+      .cta {
+        transition: all 0.3s;
+        animation: pulse-strong 2s infinite; /* Menggunakan keyframe baru */
+      }
+      .cta:hover {
+        transform: scale(1.05);
+        filter: brightness(1.1); /* Efek terang saat hover */
+      }
+
+      /* Active Link pada Nav */
+      .nav-link.active {
+        color: #ff5722; /* Primary color */
+        font-weight: 700;
+        border-bottom: 3px solid #ff5722;
+        padding-bottom: 5px;
+      }
+
+      /* Custom Dot for Testimonial */
+      .dot.active {
+        background-color: #ff5722 !important; /* Primary color */
+      }
+    </style>
+  </head>
+
+  <body class="bg-bgLight text-textDark scroll-smooth">
+    <nav
+      class="w-full px-6 md:px-16 py-4 flex items-center justify-between shadow-lg fixed top-0 bg-white z-50 transition-all duration-300"
+    >
+      <a
+        href="#home"
+        class="text-3xl font-extrabold text-primary"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        >Kebab Hajejun</a
+      >
+      <ul
+        class="hidden md:flex gap-8 text-lg font-semibold text-textDark"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+      >
+        <li>
+          <a href="#home" class="nav-link hover:text-primary transition"
+            >Beranda</a
+          >
+        </li>
+        <li>
+          <a href="#tentang" class="nav-link hover:text-primary transition"
+            >Tentang</a
+          >
+        </li>
+        <li>
+          <a href="#menu" class="nav-link hover:text-primary transition"
+            >Menu</a
+          >
+        </li>
+        <li>
+          <a href="#testimoni" class="nav-link hover:text-primary transition"
+            >Testimoni</a
+          >
+        </li>
+        <li>
+          <a href="#kontak" class="nav-link hover:text-primary transition"
+            >Kontak & Lokasi</a
+          >
+        </li>
+      </ul>
+
+      <button class="md:hidden text-2xl text-primary">☰</button>
+    </nav>
+
+    <section
+      class="relative w-full min-h-screen bg-cover bg-center flex items-center"
+      style="background-image: url('img/kebab-bg.png')"
+    >
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-4xl px-6 md:px-12 lg:px-20 text-white">
+        <!-- Badge -->
+        <span
+          class="bg-orange-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md"
+        >
+          Welcome to Kebab Premium Rasa Bintang Lima
+        </span>
+
+        <!-- Title -->
+        <h1
+          class="text-5xl md:text-6xl font-bold mt-4 leading-tight drop-shadow-lg"
+        >
+          Kebab Hajejun
+        </h1>
+
+        <!-- Subtitle -->
+        <h3 class="text-2xl md:text-3xl font-medium mt-3 mb-4">
+          Tak Cukup Hanya Sekali
+        </h3>
+
+        <!-- Description -->
+        <p
+          class="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed mb-8"
+        >
+          Nikmati kelezatan kebab authentic dengan daging pilihan,<br />
+          sayuran segar, dan saus spesial yang bikin nagih!
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap items-center gap-4">
+          <!-- WhatsApp Button -->
+          <a
+            href="https://wa.me/6281234567890"
+            class="bg-orange-600 px-6 py-3 rounded-xl font-semibold flex items-center gap-2 shadow-lg transition-all duration-300 ease-out hover:bg-[#25D366] hover:scale-105 hover:-translate-y-1 hover:shadow-xl"
+          >
+            💬 Order via WhatsApp
+          </a>
+
+          <!-- Lihat Menu -->
+          <button
+            class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-xl font-semibold flex items-center gap-2 border border-white/40 transition-all duration-300 ease-out hover:bg-white hover:text-black hover:border-white hover:scale-105 hover:-translate-y-1 shadow-lg"
+          >
+            Lihat Menu
+            <span
+              class="text-xl transition-all duration-300 group-hover:rotate-180"
+              >▾</span
+            >
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="tentang"
+      class="w-full px-6 md:px-20 py-20 flex flex-col md:flex-row items-center gap-14 bg-bgLight"
+    >
+      <div
+        class="md:w-1/2 flex justify-center relative order-2 md:order-1"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+      >
+        <div
+          class="absolute inset-0 bg-secondary/10 rounded-full w-3/4 h-3/4 blur-3xl opacity-50 -z-10"
+        ></div>
+        <img
+          src="img/kebab-pack.jpg"
+          alt="Kebab Hajejun Illustration"
+          class="w-full max-w-sm rounded-3xl shadow-xl hover:rotate-2 transition-transform duration-500"
+        />
+      </div>
+
+      <div class="md:w-1/2 order-1 md:order-2">
+        <span
+          class="text-secondary text-lg font-semibold uppercase"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="100"
+          >Filosofi Kami</span
+        >
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-primary mb-6 mt-2"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          Komitmen Kualitas
+          <span class="text-textDark">Sejak Gigitan Pertama</span>
+        </h2>
+
+        <p
+          class="text-lg leading-relaxed text-gray-700"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          Kebab Hajejun selalu berkomitmen untuk menyajikan kebab lezat, fresh,
+          dan selalu dibuat setiap hari. Kami mengutamakan kualitas mulai dari
+          **daging yang juicy**, **sayur segar**, hingga **saus racikan khas**
+          yang membuat setiap gigitan terasa istimewa.
+        </p>
+
+        <p
+          class="text-lg leading-relaxed text-gray-700 mt-4 border-l-4 border-accent pl-4 italic"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+        >
+          Berawal dari usaha kecil rumahan, Kebab Hajejun kini menjadi pilihan
+          favorit pelanggan karena rasa yang autentik, porsi melimpah, dan harga
+          yang tetap bersahabat. Kami percaya bahwa makanan enak tidak harus
+          mahal — yang penting dibuat dengan hati **❤️**
+        </p>
+      </div>
+    </section>
+
+    <section id="menu" class="px-6 md:px-20 py-20 bg-white">
+      <h3
+        class="text-4xl md:text-5xl font-extrabold text-center mb-5 text-textDark"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        Daftar Menu Favorit
+      </h3>
+      <p
+        class="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+      >
+        Jelajahi pilihan kebab terbaik kami. Dibuat dengan bahan premium untuk
+        cita rasa yang tak tertandingi.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div
+          class="bg-white p-8 rounded-3xl shadow-xl border-t-4 border-primary transition transform hover:scale-[1.02] hover:shadow-2xl duration-300"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          <img
+            src="https://asset.kompas.com/crops/aVxdr5DfIF9uFJ0w3QX4FkT6JJY=/100x114:900x647/1200x800/data/photo/2023/10/23/6536a299a300a.jpg"
+            class="rounded-2xl w-full h-56 object-cover shadow-md mb-4"
+            alt="Kebab Original"
+          />
+          <h4 class="mt-4 font-extrabold text-primary text-2xl">
+            Kebab Original 🔥
+          </h4>
+          <p class="text-gray-500 mt-1 text-base italic">
+            The classic one. Daging asli, sayur, saus spesial.
+          </p>
+          <p class="text-2xl font-bold text-textDark mt-3">Rp 15.000</p>
+          <a
+            href="#"
+            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm hover:bg-green-600 transition"
+          >
+            Pesan Sekarang
+          </a>
+        </div>
+
+        <div
+          class="bg-white p-8 rounded-3xl shadow-xl border-t-4 border-primary transition transform hover:scale-[1.02] hover:shadow-2xl duration-300"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1633321702518-7feccafb94d5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2ViYWJ8ZW58MHx8MHx8fDA%3D"
+            class="rounded-2xl w-full h-56 object-cover shadow-md mb-4"
+            alt="Kebab Jumbo"
+          />
+          <h4 class="mt-4 font-extrabold text-primary text-2xl">
+            Kebab Jumbo 🌯
+          </h4>
+          <p class="text-gray-500 mt-1 text-base italic">
+            Porsi gajah! Kenyang maksimal, rasa tetap juara.
+          </p>
+          <p class="text-2xl font-bold text-textDark mt-3">Rp 20.000</p>
+          <a
+            href="#"
+            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm hover:bg-green-600 transition"
+          >
+            Pesan Sekarang
+          </a>
+        </div>
+
+        <div
+          class="bg-white p-8 rounded-3xl shadow-xl border-t-4 border-primary transition transform hover:scale-[1.02] hover:shadow-2xl duration-300"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+        >
+          <img
+            src="https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/img/VqbcmM/2023/10/6/9770644b-2318-4ad1-b033-112f6b6c164d.jpg~tplv-aphluv4xwc-resize-jpeg:800:800.jpeg?dr=15584&t=555f072d&ps=933b5bde&shp=6ce186a1&shcp=e1be8f53&idc=my2&from=1826719393"
+            class="rounded-2xl w-full h-56 object-cover shadow-md mb-4"
+            alt="Kebab Mozzarella"
+          />
+          <h4 class="mt-4 font-extrabold text-primary text-2xl">
+            Kebab Mozzarella 🧀
+          </h4>
+          <p class="text-gray-500 mt-1 text-base italic">
+            Lelehan keju mozarella premium yang melekat.
+          </p>
+          <p class="text-2xl font-bold text-textDark mt-3">Rp 23.000</p>
+          <a
+            href="#"
+            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm hover:bg-green-600 transition"
+          >
+            Pesan Sekarang
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center mt-16" data-aos="zoom-in" data-aos-delay="600">
+        <a
+          href="menu.html"
+          class="inline-block bg-primary text-white text-xl font-bold px-12 py-4 rounded-full shadow-lg transition-all duration-300 hover:bg-red-600 hover:scale-[1.03] hover:shadow-2xl"
+        >
+          <span class="mr-2">✨</span> Lihat Semua Varian Menu
+        </a>
+      </div>
+    </section>
+
+    <section id="testimoni" class="px-6 md:px-20 py-20 text-center bg-bgLight">
+      <h3
+        class="text-4xl md:text-5xl font-extrabold text-textDark mb-4"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        Apa Kata Pelanggan?
+      </h3>
+      <p
+        class="text-lg text-gray-600 mb-12"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+      >
+        Ratusan ulasan positif membuktikan kenikmatan Kebab Hajejun.
+      </p>
+
+      <div
+        class="relative w-full overflow-hidden"
+        data-aos="zoom-y-out"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+      >
+        <div
+          id="carousel"
+          class="flex transition-transform duration-700 ease-out space-x-8"
+        >
+          <div class="min-w-[33.33%] flex justify-center p-2">
+            <div
+              class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-sm border-t-4 border-accent"
+            >
+              <img
+                src="https://i.pravatar.cc/150?img=47"
+                class="w-20 h-20 mx-auto rounded-full border-4 border-primary"
+                alt="Foto Profil Pelanggan"
+              />
+              <p class="text-xl italic mt-6 text-gray-700">
+                “Rasanya luar biasa! Dagingnya tebal dan sausnya nagih banget.
+                Kebab premium yang sebenarnya.”
+              </p>
+              <div class="flex justify-center mt-5 text-accent text-2xl">
+                ★★★★★
+              </div>
+              <h4 class="mt-3 font-bold text-xl text-primary">Amanda S.</h4>
+              <p class="text-sm text-gray-500">Karyawan Swasta</p>
+            </div>
+          </div>
+
+          <div class="min-w-[33.33%] flex justify-center p-2">
+            <div
+              class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-sm border-t-4 border-accent"
+            >
+              <img
+                src="https://i.pravatar.cc/150?img=32"
+                class="w-20 h-20 mx-auto rounded-full border-4 border-primary"
+                alt="Foto Profil Pelanggan"
+              />
+              <p class="text-xl italic mt-6 text-gray-700">
+                “Harga bersahabat tapi rasa premium. Sudah langganan tiap
+                minggu! Selalu fresh dan hangat.”
+              </p>
+              <div class="flex justify-center mt-5 text-accent text-2xl">
+                ★★★★★
+              </div>
+              <h4 class="mt-3 font-bold text-xl text-primary">Farel D.</h4>
+              <p class="text-sm text-gray-500">Mahasiswa</p>
+            </div>
+          </div>
+
+          <div class="min-w-[33.33%] flex justify-center p-2">
+            <div
+              class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-sm border-t-4 border-accent"
+            >
+              <img
+                src="https://i.pravatar.cc/150?img=12"
+                class="w-20 h-20 mx-auto rounded-full border-4 border-primary"
+                alt="Foto Profil Pelanggan"
+              />
+              <p class="text-xl italic mt-6 text-gray-700">
+                “Kebab terenak di kota ini, recommended banget! Porsi pas,
+                daging melimpah. Cobain deh!”
+              </p>
+              <div class="flex justify-center mt-5 text-accent text-2xl">
+                ★★★★★
+              </div>
+              <h4 class="mt-3 font-bold text-xl text-primary">Rudi P.</h4>
+              <p class="text-sm text-gray-500">Wirausaha</p>
+            </div>
+          </div>
+
+          <div class="min-w-[33.33%] flex justify-center p-2">
+            <div
+              class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-sm border-t-4 border-accent"
+            >
+              <img
+                src="https://i.pravatar.cc/150?img=55"
+                class="w-20 h-20 mx-auto rounded-full border-4 border-primary"
+                alt="Foto Profil Pelanggan"
+              />
+              <p class="text-xl italic mt-6 text-gray-700">
+                “Pelayanan cepat, kebab selalu hangat dan fresh. Paling suka
+                sama Kebab Mozarella-nya.”
+              </p>
+              <div class="flex justify-center mt-5 text-accent text-2xl">
+                ★★★★★
+              </div>
+              <h4 class="mt-3 font-bold text-xl text-primary">Nadia Z.</h4>
+              <p class="text-sm text-gray-500">Ibu Rumah Tangga</p>
+            </div>
+          </div>
+
+          <div class="min-w-[33.33%] flex justify-center p-2">
+            <div
+              class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-sm border-t-4 border-accent"
+            >
+              <img
+                src="https://i.pravatar.cc/150?img=65"
+                class="w-20 h-20 mx-auto rounded-full border-4 border-primary"
+                alt="Foto Profil Pelanggan"
+              />
+              <p class="text-xl italic mt-6 text-gray-700">
+                “Murah, cepat, enak. Solusi lapar saat lembur! Nggak ada
+                tandingannya.”
+              </p>
+              <div class="flex justify-center mt-5 text-accent text-2xl">
+                ★★★★★
+              </div>
+              <h4 class="mt-3 font-bold text-xl text-primary">Bintang M.</h4>
+              <p class="text-sm text-gray-500">Content Creator</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="dots"
+        class="flex justify-center mt-10 gap-4"
+        data-aos="fade-up"
+        data-aos-delay="700"
+      >
+        <span
+          class="dot w-4 h-4 bg-gray-300 rounded-full cursor-pointer transition-all duration-300"
+        ></span>
+        <span
+          class="dot w-4 h-4 bg-gray-300 rounded-full cursor-pointer transition-all duration-300"
+        ></span>
+        <span
+          class="dot w-4 h-4 bg-gray-300 rounded-full cursor-pointer transition-all duration-300"
+        ></span>
+      </div>
+    </section>
+
+    <section
+      id="order"
+      class="px-6 md:px-20 py-20 text-center bg-primary"
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+    >
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+          Siap Mencoba Sensasi Kebab Premium?
+        </h3>
+        <p class="text-white text-xl mb-10 font-light">
+          Jangan tunda lagi! Pesan sekarang dan rasakan perbedaan Kebab Hajejun.
+          Dijamin ketagihan!
+        </p>
+        <a
+          id="waOrder"
+          href="https://wa.me/62811603603"
+          target="_blank"
+          class="cta inline-flex items-center gap-3 bg-secondary text-white px-12 py-5 text-2xl font-bold rounded-full shadow-lg hover:bg-green-600"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.75.46 3.46 1.33 4.98L2 22l5.2-1.35c1.46.8 3.1 1.22 4.84 1.22h.01c5.48 0 9.95-4.46 9.95-9.96 0-2.66-1.04-5.16-2.93-7.05A9.88 9.88 0 0 0 12.04 2zM8 7.69c.14-.32.29-.33.53-.33.13 0 .27 0 .4.01.13 0 .29-.05.45.34.17.4.57 1.32.62 1.41.05.1.08.21.02.34-.06.13-.09.21-.18.32-.09.1-.19.23-.27.31-.09.09-.18.19-.08.37.1.18.46.76.99 1.23.68.61 1.25.8 1.43.9.18.09.29.08.39-.04.1-.13.45-.52.56-.69.12-.17.23-.14.4-.08.17.05 1.09.51 1.27.6.19.09.31.14.35.22.05.1.05.57-.12 1.12-.17.54-.99 1.06-1.33 1.1-.34.05-.75.1-2.47-.61C9.7 14.43 7.9 12 7.88 9.68c0-.76.2-1.27.39-1.61z"
+            />
+          </svg>
+          <span>PESAN VIA WHATSAPP</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="kontak" class="px-6 md:px-20 py-20 bg-white">
+      <h3
+        class="text-4xl md:text-5xl font-extrabold text-textDark text-center mb-14"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        Hubungi & Temukan Kami
+      </h3>
+
+      <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div class="space-y-6">
+          <a
+            id="waKontak"
+            href="https://wa.me/62811603603"
+            target="_blank"
+            class="group p-8 rounded-3xl bg-green-50 shadow-lg border border-green-200 flex items-center gap-6 hover:shadow-xl hover:bg-green-100 transition-all duration-300"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div
+              class="p-4 rounded-full bg-secondary shadow-lg text-white group-hover:rotate-6 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.75.46 3.46 1.33 4.98L2 22l5.2-1.35c1.46.8 3.1 1.22 4.84 1.22h.01c5.48 0 9.95-4.46 9.95-9.96 0-2.66-1.04-5.16-2.93-7.05A9.88 9.88 0 0 0 12.04 2z"
+                />
+              </svg>
+            </div>
+
+            <div>
+              <p class="text-xl text-gray-700">WhatsApp Fast Response</p>
+              <p class="text-3xl font-extrabold text-textDark">0811-603-603</p>
+              <p class="text-sm mt-1 text-secondary font-semibold">
+                Klik untuk chat langsung
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="https://instagram.com/kebabhajejun"
+            target="_blank"
+            class="group p-8 rounded-3xl bg-pink-50 shadow-lg border border-pink-200 flex items-center gap-6 hover:shadow-xl hover:bg-pink-100 transition-all duration-300"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="400"
+          >
+            <div
+              class="p-4 rounded-full bg-pink-500 shadow-lg text-white group-hover:rotate-6 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2.2c3.16 0 3.55.01 4.8.07 1.17.06 1.97.24 2.43.41.61.24 1.04.53 1.5.99.46.46.75.89.99 1.5.17.46.35 1.26.41 2.43.06 1.25.07 1.64.07 4.8s-.01 3.55-.07 4.8c-.06 1.17-.24 1.97-.41 2.43a3.91 3.91 0 0 1-.99 1.5 3.9 3.9 0 0 1-1.5.99c-.46.17-1.26.35-2.43.41-1.25.06-1.64.07-4.8.07s-3.55-.01-4.8-.07c-1.17-.06-1.97-.24-2.43-.41a3.9 3.9 0 0 1-1.5-.99 3.9 3.9 0 0 1-.99-1.5c-.17-.46-.35-1.26-.41-2.43C2.21 15.55 2.2 15.16 2.2 12s.01-3.55.07-4.8c.06-1.17.24-1.97.41-2.43.24-.61.53-1.04.99-1.5.46-.46.89-.75 1.5-.99.46-.17 1.26-.35 2.43-.41C8.45 2.21 8.84 2.2 12 2.2z"
+                />
+              </svg>
+            </div>
+
+            <div>
+              <p class="text-xl text-gray-700">Instagram Resmi</p>
+              <p class="text-3xl font-extrabold text-textDark">@kebabhajejun</p>
+              <p class="text-sm mt-1 text-pink-700 font-semibold">
+                Lihat promo terbaru di IG
+              </p>
+            </div>
+          </a>
+        </div>
+
+        <div
+          class="bg-bgLight rounded-3xl shadow-xl border border-gray-200 overflow-hidden"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          <div class="py-4 px-6 bg-primary text-white">
+            <h3 class="text-2xl font-bold">📍 Lokasi Outlet Panglima Denai</h3>
+          </div>
+
+          <div class="w-full h-[300px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31816.67385336494!2d98.6988292!3d3.5317925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3030d6dff83bd21b%3A0x2c86fa251a5e27f0!2sPanglima%20Denai!5e0!3m2!1sid!2sid!4v1733059200000!5m2!1sid!2sid"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <div class="py-5 text-center bg-gray-50">
+            <a
+              href="https://maps.app.goo.gl/5Cd3bBmDqZab2wHUA"
+              target="_blank"
+              class="px-8 py-3 bg-textDark hover:bg-gray-800 text-white text-lg font-semibold rounded-full shadow-md transition inline-flex items-center gap-2"
+            >
+              <span class="text-xl">🗺️</span> Buka di Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="powered"
+      class="px-6 md:px-20 py-16 bg-bgLight border-t border-gray-200"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <h3 class="text-3xl font-bold text-center mb-10 text-textDark">
+        Partner Kami
+      </h3>
+      <div class="flex justify-center gap-16 items-center flex-wrap">
+        <img
+          src="https://forhati.id/wp-content/uploads/2020/09/forhati.png"
+          alt="Logo Forhati"
+          class="w-32 md:w-40 opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+        />
+        <img
+          src="https://seeklogo.com/images/B/bank-indonesia-logo-E4DDE793E3-seeklogo.com.png"
+          alt="Logo Bank Indonesia"
+          class="w-24 md:w-32 opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </section>
+
+    <footer
+      class="text-center py-8 text-gray-500 bg-white border-t border-gray-100"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <p class="text-lg font-medium text-textDark mb-1">Kebab Hajejun</p>
+      <p>© 2025 Kebab Hajejun — UMKM Kuliner Lokal. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        // Konfigurasi umum AOS
+        once: true, // Animasi hanya berjalan sekali
+        mirror: false, // Tidak berulang saat scroll ke atas
+        duration: 800, // Durasi animasi dalam ms
+        easing: "ease-out-cubic", // Jenis easing
+      });
+    </script>
+    <script>
+      const carousel = document.getElementById("carousel");
+      const dots = document.querySelectorAll(".dot");
+
+      let index = 0;
+      // Perhitungan maxIndex disesuaikan dengan jumlah kartu yang terlihat per slide (3 kartu)
+      // Total kartu: 5. Slide 0: Kartu 1-3. Slide 1: Kartu 2-4. Slide 2: Kartu 3-5.
+      const totalCards = 5;
+      const cardsPerSlide = 3;
+      const maxIndex = totalCards - cardsPerSlide; // 5 - 3 = 2
+
+      function updateCarousel() {
+        // Karena ada 3 kartu yang terlihat, setiap slide berpindah sebesar 1/3 = 33.33%
+        const offset = index * -33.33;
+        carousel.style.transform = `translateX(${offset}%)`;
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+
+      // Auto slide
+      setInterval(() => {
+        index = (index + 1) % (maxIndex + 1);
+        updateCarousel();
+      }, 4000); // Diperpanjang menjadi 4 detik
+
+      // Click dots
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          index = i;
+          updateCarousel();
+        });
+      });
+
+      // Update WhatsApp Links with Actual Number
+      const nomorWA = "62811603603"; // Ganti dengan nomor yang benar
+      const pesanDefault =
+        "Halo, saya tertarik dengan Kebab Hajejun! Saya mau pesan.";
+
+      document.getElementById(
+        "waHome"
+      ).href = `https://wa.me/${nomorWA}?text=${encodeURIComponent(
+        pesanDefault
+      )}`;
+      document.getElementById(
+        "waOrder"
+      ).href = `https://wa.me/${nomorWA}?text=${encodeURIComponent(
+        pesanDefault
+      )}`;
+      document.getElementById("waKontak").href = `https://wa.me/${nomorWA}`;
+
+      // Optional: Highlight active section in navbar
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      const options = {
+        root: null,
+        threshold: 0.5,
+        rootMargin: "0px",
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("href").substring(1) === entry.target.id) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      }, options);
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+
+      updateCarousel();
+    </script>
+  </body>
+</html>
