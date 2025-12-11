@@ -4,25 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu Lengkap – Kebab Hajejun</title>
+    <link rel="icon" type="image/png " href="img/kebab-logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS ANIMATION CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
+
   <body class="bg-orange-50">
     <!-- HEADER -->
     <header
-      class="px-6 md:px-20 py-6 bg-white shadow-md flex justify-between items-center"
+      class="px-6 md:px-20 py-6 bg-white shadow-md flex items-center"
+      data-aos="fade-down"
+      data-aos-duration="900"
     >
-      <h1 class="text-2xl font-bold text-orange-600">Kebab Hajejun</h1>
+      <div class="flex-1"></div>
       <a
-        href="home.html"
-        class="text-gray-700 hover:text-orange-600 duration-300"
-        >Kembali ke Beranda</a
+        href="index.html"
+        class="text-gray-700 hover:text-orange-600 inline-block transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
       >
+        Kembali ke Beranda
+      </a>
     </header>
 
     <!-- DAFTAR MENU LENGKAP -->
     <section class="px-6 md:px-20 py-14">
       <h2
         class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10"
+        data-aos="fade-up"
+        data-aos-duration="1000"
       >
         Daftar Menu Lengkap
       </h2>
@@ -30,7 +40,6 @@
       <!-- GRID MENU -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- ITEM MENU -->
-        <!-- Duplicated items (10 total) -->
         <script>
           const items = [
             ["kebabMini", "img/kebab-mini.jpeg", "Kebab Ayam Mini", "Rp 6.000"],
@@ -85,8 +94,14 @@
           document.write(
             items
               .map(
-                (item) => `
-        <div onclick="openModal('${item[0]}')" class="bg-white shadow-lg rounded-xl p-5 cursor-pointer hover:scale-105 duration-300">
+                (item, i) => `
+        <div 
+          onclick="openModal('${item[0]}')" 
+          class="bg-white shadow-lg rounded-xl p-5 cursor-pointer hover:scale-105 duration-300"
+          data-aos="zoom-in"
+          data-aos-duration="900"
+          data-aos-delay="${i * 80}"
+        >
           <img src="${item[1]}" class="w-full h-48 object-cover rounded-lg" />
           <h3 class="text-xl font-semibold mt-4">${item[2]}</h3>
           <p class="text-gray-700 mt-1">${item[3]}</p>
@@ -99,8 +114,46 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center p-6 bg-white mt-10 text-gray-600">
-      &copy; 2025 Kebab Hajejun — Tak Cukup Hanya Sekali
+    <footer
+      class="bg-gradient-to-r from-orange-400 via-red-400 to-pink-500 text-white pt-12 pb-6"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 md:px-20 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div
+          class="flex items-center gap-4 text-center md:text-left"
+          data-aos="fade-right"
+          data-aos-duration="900"
+        >
+          <img
+            src="img/kebab-logo.png"
+            alt="Kebab Hajejun Logo"
+            class="w-32 h-32 rounded-full object-cover transition-transform duration-300 ease-in-out hover:scale-125"
+          />
+          <div>
+            <h2 class="text-2xl md:text-3xl font-extrabold">Kebab Hajejun</h2>
+            <p class="mt-1 text-sm md:text-base font-light">
+              Gak Cukup Hanya Sekali, Cak Lah Ko Rasa
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="text-center md:text-right space-y-2"
+          data-aos="fade-left"
+          data-aos-duration="900"
+        >
+          <p class="text-sm md:text-base">
+            📍 Jl. Panglima Denai Pasar V Komp. Padi Raya No.21, Medan
+          </p>
+          <p class="text-sm md:text-base">📞 0811-603-603</p>
+          <p class="text-sm md:text-base font-light">
+            © 2025 Kebab Hajejun — All rights reserved
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- MODAL -->
@@ -109,7 +162,9 @@
       class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center px-5"
     >
       <div
-        class="bg-white p-7 rounded-xl shadow-2xl max-w-md relative animate-fade"
+        class="bg-white p-7 rounded-xl shadow-2xl max-w-md relative"
+        data-aos="zoom-in"
+        data-aos-duration="700"
       >
         <button
           onclick="closeModal()"
@@ -117,6 +172,7 @@
         >
           ✖
         </button>
+
         <img id="modalImg" class="w-full h-52 object-cover rounded-lg" />
         <h3 id="modalTitle" class="text-2xl font-bold mt-4"></h3>
         <p id="modalDesc" class="mt-2 text-gray-700"></p>
@@ -125,7 +181,6 @@
           class="mt-3 text-lg font-semibold text-orange-600"
         ></p>
 
-        <!-- CTA WA -->
         <a
           id="orderWA"
           target="_blank"
@@ -136,11 +191,20 @@
       </div>
     </div>
 
+    <!-- AOS SCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Nomor WA UMKM
-      const phone = "6281234567890"; // ganti ke nomor UMKM
+      AOS.init({
+        once: true,
+        duration: 900,
+        easing: "ease-out",
+      });
+    </script>
 
-      // DATA POPUP
+    <!-- JAVASCRIPT MODAL -->
+    <script>
+      const phone = "62811603603";
+
       const productData = {
         kebabMini: {
           title: "Kebab Ayam Mini",
@@ -151,55 +215,55 @@
         kebabJumbo: {
           title: "Kebab Ayam Jumbo",
           img: "img/kebab-jumbo.jpg",
-          desc: "Porsi besar, puas maksimal! Berisi ayam melimpah, lettuce segar, dan saus spesial yang meleleh di lidah. Favorit pelanggan yang doyan kenyang!",
+          desc: "Porsi besar, puas maksimal! Berisi ayam melimpah, lettuce segar, dan saus spesial yang meleleh di lidah.",
           price: "Rp 15.000",
         },
         kebabMedium: {
           title: "Kebab Ayam Medium",
           img: "img/kebab-medium.jpg",
-          desc: "Pilihan pas untuk yang mau kenyang tapi tetap ringan. Rasa mantap, isi melimpah, harga bersahabat!",
+          desc: "Pilihan pas untuk yang mau kenyang tapi tetap ringan.",
           price: "Rp 10.000",
         },
         kebabFrozenJumbo: {
           title: "Kebab Ayam Jumbo - Frozen",
           img: "img/kebab-pack.jpg",
-          desc: "[NB : 1 Pack isi 5 Kebab Ayam Jumbo] Stok kebab favorit di rumah kapan saja! Praktis, tinggal panaskan. Tetap enak, tetap juicy, tetap jumbo.",
+          desc: "[NB : 1 Pack isi 5 Kebab Ayam Jumbo] Stok kebab favorit di rumah kapan saja!",
           price: "Rp 55.000",
         },
         kebabFrozenMedium: {
           title: "Kebab Ayam Medium - Frozen",
           img: "img/kebab-pack.jpg",
-          desc: "[NB : 1 Pack isi 4 Kebab Ayam Medium] Mudah disajikan kapan saja tanpa ribet. Rasa dan kualitas tetap terjaga, cocok jadi stok camilan keluarga.",
+          desc: "[NB : 1 Pack isi 4 Kebab Ayam Medium] Mudah disajikan kapan saja tanpa ribet.",
           price: "Rp 35.000",
         },
         rotiJala: {
           title: "Roti Jala - Kari Ayam",
           img: "img/roti-jala.webp",
-          desc: "[NB : Menerima tempahan kg-an] Lembutnya roti jala berpadu dengan kari ayam gurih dan harum rempah. Sajian klasik yang bikin kangen!",
+          desc: "[NB : Menerima tempahan kg-an] Lembutnya roti jala berpadu dengan kari ayam gurih.",
           price: "Rp 15.000",
         },
         otakReady: {
           title: "Otak Otak Ikan Tenggiri - Ready to Eat",
           img: "img/otakready.jpg",
-          desc: "[NB : 1 Pack isi 11 pcs] Langsung makan, praktis, dan super lezat! Terbuat dari ikan tenggiri asli dengan tekstur kenyal dan aroma khas yang menggoda.",
+          desc: "[NB : 1 Pack isi 11 pcs] Langsung makan, praktis, dan super lezat!",
           price: "Rp 20.000",
         },
         Dimsum: {
           title: "Dimsum Mentai",
           img: "img/dimsum.jpeg",
-          desc: "Dimsum lembut disiram saus mentai creamy dan sedikit pedas yang bikin nagih. Praktis, enak, dan siap jadi camilan favorit kapan saja!",
+          desc: "Dimsum lembut disiram saus mentai creamy.",
           price: "Rp 25.000",
         },
         otakFrozen: {
           title: "Otak Otak Ikan Tenggiri - Frozen",
           img: "img/otakfrozen.jpeg",
-          desc: "[NB : 1 Pack isi 11 pcs] Camilan frozen favorit keluarga. Praktis disimpan, mudah dimasak, dan rasanya tetap premium.",
+          desc: "[NB : 1 Pack isi 11 pcs] Camilan frozen favorit keluarga.",
           price: "Rp 15.000",
         },
         Karipap: {
           title: "Karipap",
           img: "img/karipap.jpg",
-          desc: "Kue renyah berisi kentang dan ayam berbumbu khas. Cocok dijadikan camilan keluarga atau suguhan tamu.",
+          desc: "Kue renyah berisi kentang dan ayam berbumbu khas.",
           price: "Rp 50.000",
         },
       };
@@ -211,7 +275,6 @@
         document.getElementById("modalDesc").innerText = data.desc;
         document.getElementById("modalPrice").innerText = data.price;
 
-        // Link WA otomatis
         const text = `Halo kak, saya ingin pesan *${data.title}* (${data.price}). Apakah masih tersedia?`;
         document.getElementById(
           "orderWA"

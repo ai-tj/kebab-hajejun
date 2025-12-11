@@ -16,12 +16,11 @@
         theme: {
           extend: {
             colors: {
-              // Ganti warna utama menjadi lebih "Foody" dan modern
-              primary: "#FF5722", // Orange cerah/merah bata (kebab/daging)
-              secondary: "#10B981", // Hijau segar (sayuran/fresh)
-              accent: "#FBBF24", // Kuning/Mustard (keju/saus)
-              bgLight: "#FFF7ED", // Background sangat terang
-              textDark: "#1F2937", // Abu gelap untuk teks
+              primary: "#FF5722",
+              secondary: "#10B981",
+              accent: "#FBBF24",
+              bgLight: "#FFF7ED",
+              textDark: "#1F2937",
             },
             fontFamily: {
               sans: ["Poppins", "sans-serif"],
@@ -62,7 +61,7 @@
       /* Animasi Hover CTA */
       .cta {
         transition: all 0.3s;
-        animation: pulse-strong 2s infinite; /* Menggunakan keyframe baru */
+        animation: pulse-strong 2s infinite;
       }
       .cta:hover {
         transform: scale(1.05);
@@ -119,7 +118,7 @@
         data-aos-duration="1000"
       >
         <img src="img/kebab-logo.png" class="w-10 h-10 rounded-full shadow" />
-        <a href="#home" class="text-3xl font-extrabold text-primary">
+        <a href="index.html" class="text-3xl font-extrabold text-primary">
           Kebab Hajejun
         </a>
       </div>
@@ -228,34 +227,62 @@
       id="home"
       class="relative w-full bg-cover bg-center flex items-center py-24 md:min-h-screen"
       style="background-image: url('img/kebab-bg.png')"
+      data-aos="fade-up"
+      data-aos-duration="1000"
     >
       <div class="absolute inset-0 bg-black/60"></div>
 
       <div class="relative z-10 max-w-4xl px-6 md:px-12 lg:px-20 text-white">
         <span
           class="bg-orange-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md"
+          data-aos="fade-down"
+          data-aos-duration="800"
         >
           Welcome to the Taste of Premium Kebab
         </span>
 
         <h1
           class="text-4xl sm:text-5xl md:text-7xl font-extrabold mt-4 leading-tight drop-shadow-lg"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
         >
           Kebab Hajejun
         </h1>
 
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-medium mt-3 mb-4">
+        <h3
+          class="text-xl sm:text-2xl md:text-3xl font-medium mt-3 mb-4"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+        >
           Gak Cukup Hanya Sekali
         </h3>
 
+        <h4
+          class="text-xl sm:text-2xl md:text-2xl font-bold mt-3 mb-4 text-yellow-500"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+        >
+          Cak Lah Ko Rasa!!
+        </h4>
         <p
           class="text-base sm:text-lg text-gray-200 max-w-2xl leading-relaxed mb-8"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="600"
         >
           Nikmati kelezatan kebab authentic dengan daging pilihan, sayuran
           segar, dan saus spesial yang bikin nagih!
         </p>
 
-        <div class="flex flex-wrap items-center gap-4">
+        <div
+          class="flex flex-wrap items-center gap-4"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="800"
+        >
           <a
             href="https://wa.me/62811603603"
             id="waHome"
@@ -309,7 +336,7 @@
         <img
           src="img/kebab-tentang.jpg"
           alt="Kebab Hajejun Illustration"
-          class="w-full max-w-xs sm:max-w-sm rounded-3xl shadow-xl hover:rotate-2 transition-transform duration-500"
+          class="w-full max-w-xs sm:max-w-sm rounded-3xl shadow-xl transition-all duration-500 transform hover:scale-110 hover:brightness-110 hover:shadow-2xl"
         />
       </div>
 
@@ -403,7 +430,7 @@
           </p>
           <a
             href="https://wa.me/62811603603?text=Halo%20kak,%20saya%20ingin%20pesan%20*Kebab%20Ayam*%20(Rp%2015.000).%20Apakah%20masih%20tersedia%3F"
-            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm hover:bg-green-600 transition"
+            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm transition-all duration-300 transform hover:scale-110 hover:bg-green-600 hover:shadow-lg"
           >
             Pesan Sekarang
           </a>
@@ -431,7 +458,7 @@
           </p>
           <a
             href="https://wa.me/62811603603?text=Halo%20kak,%20saya%20ingin%20pesan%20*Dimsum%20Mentai*%20(Rp%2025.000).%20Apakah%20masih%20tersedia%3F"
-            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm hover:bg-green-600 transition"
+            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm transition-all duration-300 transform hover:scale-110 hover:bg-green-600 hover:shadow-lg"
           >
             Pesan Sekarang
           </a>
@@ -459,8 +486,8 @@
             Rp 35.000
           </p>
           <a
-            href="https://wa.me/62811603603?text=Halo%20kak,%20saya%20ingin%20pesan%20*Kebab%20Frozen*%20(Rp%2025.000).%20Apakah%20masih%20tersedia%3F"
-            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm hover:bg-green-600 transition"
+            href="https://wa.me/62811603603?text=Halo%20kak,%20saya%20ingin%20pesan%20*Kebab%20Frozen*%20(Rp%2035.000).%20Apakah%20masih%20tersedia%3F"
+            class="inline-block mt-4 bg-secondary text-white font-semibold px-6 py-2 rounded-full text-sm transition-all duration-300 transform hover:scale-110 hover:bg-green-600 hover:shadow-lg"
           >
             Pesan Sekarang
           </a>
@@ -516,14 +543,17 @@
               class="bg-gray-50 border rounded-xl p-6 w-full max-w-sm shadow-sm"
             >
               <img
-                src="https://i.pravatar.cc/150?img=47"
+                src="img/review-1.png"
                 class="w-16 h-16 mx-auto rounded-full border"
               />
               <p class="text-base mt-5 text-gray-700 leading-relaxed">
-                “Rasanya luar biasa! Dagingnya tebal, sausnya gurih banget.”
+                “Enak!!! Dari sisi bumbu, daging, dan rasa bener-bener dapet
+                banget! 🤤🔥”
               </p>
-              <h4 class="mt-4 font-semibold text-primary text-lg">Amanda S.</h4>
-              <p class="text-xs text-gray-500">Karyawan Swasta</p>
+              <h4 class="mt-4 font-semibold text-primary text-lg">
+                Imam Syafi'i
+              </h4>
+              <p class="text-xs text-gray-500">Direktur Satoeasa</p>
             </div>
           </div>
 
@@ -532,14 +562,16 @@
               class="bg-gray-50 border rounded-xl p-6 w-full max-w-sm shadow-sm"
             >
               <img
-                src="https://i.pravatar.cc/150?img=32"
+                src="img/review-2.jpg"
                 class="w-16 h-16 mx-auto rounded-full border"
               />
               <p class="text-base mt-5 text-gray-700 leading-relaxed">
-                “Harga ramah tapi rasa premium. Sudah langganan tiap minggu!”
+                “Kebabnya mantap, maknyuss, dan enak rasanya 🤩”
               </p>
-              <h4 class="mt-4 font-semibold text-primary text-lg">Farel D.</h4>
-              <p class="text-xs text-gray-500">Mahasiswa</p>
+              <h4 class="mt-4 font-semibold text-primary text-lg">
+                Sugiat Santoso
+              </h4>
+              <p class="text-xs text-gray-500">Wakil Ketua Komisi 13 DPR RI</p>
             </div>
           </div>
 
@@ -548,14 +580,14 @@
               class="bg-gray-50 border rounded-xl p-6 w-full max-w-sm shadow-sm"
             >
               <img
-                src="https://i.pravatar.cc/150?img=12"
+                src="img/review-3.png"
                 class="w-16 h-16 mx-auto rounded-full border"
               />
               <p class="text-base mt-5 text-gray-700 leading-relaxed">
-                “Kebab terenak di sini. Porsi pas, dagingnya melimpah!”
+                “Rasanya maknyusss 😍✨ Wajib banget dicoba!!”
               </p>
-              <h4 class="mt-4 font-semibold text-primary text-lg">Rudi P.</h4>
-              <p class="text-xs text-gray-500">Wirausaha</p>
+              <h4 class="mt-4 font-semibold text-primary text-lg">Konsumen</h4>
+              <p class="text-xs text-gray-500">Anonim</p>
             </div>
           </div>
 
@@ -564,29 +596,33 @@
               class="bg-gray-50 border rounded-xl p-6 w-full max-w-sm shadow-sm"
             >
               <img
-                src="https://i.pravatar.cc/150?img=4"
+                src="img/review-1.png"
                 class="w-16 h-16 mx-auto rounded-full border"
               />
               <p class="text-base mt-5 text-gray-700 leading-relaxed">
-                “Pelayanan cepat, rasa konsisten. Mantap Hajejun!”
+                “Kemasannya juga bagus, informatif, dan punya karakter
+                tersendiri. 🤤🔥”
               </p>
-              <h4 class="mt-4 font-semibold text-primary text-lg">Susi M.</h4>
-              <p class="text-xs text-gray-500">Ibu Rumah Tangga</p>
+              <h4 class="mt-4 font-semibold text-primary text-lg">
+                Imam Syafi'i
+              </h4>
+              <p class="text-xs text-gray-500">Direktur Satoeasa</p>
             </div>
           </div>
+
           <div class="mobile-card-width p-2 flex justify-center">
             <div
               class="bg-gray-50 border rounded-xl p-6 w-full max-w-sm shadow-sm"
             >
               <img
-                src="https://i.pravatar.cc/150?img=9"
+                src="img/review-4.png"
                 class="w-16 h-16 mx-auto rounded-full border"
               />
               <p class="text-base mt-5 text-gray-700 leading-relaxed">
-                “Pedasnya pas, dagingnya beneran premium. Highly recommended.”
+                “Kebabnya enak & full daging ayam. Langsung borong 😋🔥”
               </p>
-              <h4 class="mt-4 font-semibold text-primary text-lg">Bima K.</h4>
-              <p class="text-xs text-gray-500">Pekerja Lepas</p>
+              <h4 class="mt-4 font-semibold text-primary text-lg">Konsumen</h4>
+              <p class="text-xs text-gray-500">Anonim</p>
             </div>
           </div>
         </div>
@@ -824,13 +860,29 @@
             class="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-md bg-white flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
           >
             <img
-              src="img/logo-x.png"
-              alt="Partner"
+              src="img/logo-hipka.png"
+              alt="hipka"
               class="w-full h-full object-contain p-4 transition-transform duration-300 hover:scale-110"
             />
           </div>
-          <p class="text-sm md:text-base text-gray-700 font-medium">
-            Nama Partner
+          <p class="text-sm md:text-base text-gray-700 font-bold">
+            HIPKA Sumut
+          </p>
+        </div>
+
+        <!-- Partner 4 -->
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-md bg-white flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            <img
+              src="img/logo-ukmhu.png"
+              alt="UKM HU "
+              class="w-full h-full object-contain p-4 transition-transform duration-300 hover:scale-125"
+            />
+          </div>
+          <p class="text-sm md:text-base text-gray-700 font-bold">
+            UKM Haji Umroh
           </p>
         </div>
       </div>
